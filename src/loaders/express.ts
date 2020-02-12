@@ -1,0 +1,23 @@
+
+ import express from 'express';
+ import cors from 'cors';
+
+export default ({ app }: { app: express.Application }) => {
+
+  app.use(cors());
+  app.use(express.json());
+
+  // Load API routes
+
+
+  /// catch 404 and forward to error handler
+  app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err['status'] = 404;
+    next(err);
+  });
+
+  /// error handlers
+  
+};
+
