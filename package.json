@@ -14,7 +14,8 @@
     "commitmsg": "validate-commit-msg",
     "release": "standard-version",
     "precommit": "lint-staged",
-    "build:dev-image": "docker build . -t indigitall/${npm_package_name}:${npm_package_version}-$(git rev-parse --short HEAD) --no-cache"
+    "build:dev-image": "docker build . -t indigitall/${npm_package_name}:${npm_package_version}-$(git rev-parse --short HEAD) --no-cache",
+    "build:pro": "docker build . -t indigitall/${npm_package_name}:${npm_package_version} --no-cache"
   },
   "keywords": [
     "social",
