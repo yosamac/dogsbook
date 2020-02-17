@@ -1,9 +1,10 @@
 import { Container } from 'typedi';
 import LoggerInstance from './logger';
 
-export default () => {
+export default (postgresDb) => {
   try {
    
+    Container.set('dogsbookDb', postgresDb)
     Container.set('logger', LoggerInstance)
 
     return { status : true };

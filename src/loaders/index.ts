@@ -1,9 +1,11 @@
 import expressLoader from './express';
 import dependencyInjectorLoader from './dependencyInjector';
 import  Logger  from './logger';
+import postgresLoader from './postgres'
 
 export default async ({ expressApp }) => {
-  
+
+  const postgresDb = postgresLoader();
   Logger.info('✌️ DB loaded and connected! and');
 
   /**
@@ -14,7 +16,7 @@ export default async ({ expressApp }) => {
    * of writing unit tests, just go and check how beautiful they are!
    */
 
-  const { status } = await dependencyInjectorLoader();
+  const { status } = await dependencyInjectorLoader(postgresDb);
 
   if (status) {
     Logger.info('✌️ Dependency Injector loaded');
