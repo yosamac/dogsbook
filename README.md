@@ -32,6 +32,7 @@ npm start:dev
 npm start
 ```
 
+
 ## General configuration
 
 ### Environment variables
@@ -60,7 +61,17 @@ npm run test
 npm run test
 ```
 
-## Deployment
+### Deployment
+
+## Build production image
+```shell
+npm run build:pro
+```
+
+## Build development image
+```shell
+npm run build:dev-image
+```
 
 ### TOD0
 
@@ -73,7 +84,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors 
 
-* **Yosnier Samon** - *Initial work* - [My bitbucket](https://bitbucket.org/%7Be62d0967-5a38-43c2-aeca-098e3af45787%7D/)
+* **Yosnier Samon M.** - *Initial work* - [My bitbucket](https://bitbucket.org/%7Be62d0967-5a38-43c2-aeca-098e3af45787%7D/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
