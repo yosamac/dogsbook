@@ -1,4 +1,8 @@
 
+// Estas funciones aumenta el consumo de memoria, debido a las instancia 
+// de Promise creadas cada vez que ejecutamos las funciones y 
+// se puede llegar a tener el error: Nodejs heap out of memory.
+// Recomiendo usar el metodo estatico Promise.resolve, sin crear instancias.
 
 export const isSouthOrNorth = (latitude, longitude) => {
   return new Promise((resolve, reject) => {
