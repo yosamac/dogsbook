@@ -18,15 +18,15 @@ cd dogsbook
 npm i 
 ```
 
-### Usage
+## Usage
 
-## Development mode
+### Development mode
 
 ```shell
 npm start:dev
 ```
 
-## Production mode
+### Production mode
 
 ```shell
 npm start
@@ -61,14 +61,14 @@ npm run test
 npm run test
 ```
 
-### Deployment
+## Deployment
 
-## Build production image
+### Build production image
 ```shell
 npm run build:pro
 ```
 
-## Build development image
+### Build development image
 ```shell
 npm run build:dev-image
 ```
