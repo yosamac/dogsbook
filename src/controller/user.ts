@@ -69,7 +69,7 @@ export function getUser (req: Request, res: Response, next: NextFunction)  {
 
   userService
     .getUser(userId)
-    .then((user ) => res.status(200).json(handleResponseOk(user)))
+    .then((user) => res.status(200).json(handleResponseOk(user)))
     .catch(catchError(logger)(next));
 }
 
