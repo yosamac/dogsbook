@@ -29,7 +29,7 @@ pipelines:
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch origin
             - git fetch origin develop
-            - git checkout --track origin/release/alfa
+            - git checkout origin release/alfa
             - git pull origin release/alfa
             - git merge origin develop
             - git tag -am "Release $VERSION" $VERSION
