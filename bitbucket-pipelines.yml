@@ -13,7 +13,6 @@ pipelines:
             - npm run release
             - VERSION=$(npm run version --silent)
             - git tag -am "Release $VERSION" $VERSION
-            - git push --follow-tags
             - if [[ $(git rev-parse --is-shallow-repository) == false ]]; then git fetch --unshallow || echo 'Fail to fetch unshallow'; fi
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch origin
