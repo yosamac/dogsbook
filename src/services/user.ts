@@ -24,7 +24,7 @@ export default class UserService {
     @Inject('logger') private logger: Logger,
   ) {}
 
-  public async createUser(userData: createUserDTO): Promise<IUser> {
+  public async createUser(userData: createUserDTO): Promise<IUser> {              
     this.logger.silly('Creating user db record');
   
     const {password, latitude, longitude} = userData
@@ -33,7 +33,7 @@ export default class UserService {
     
     return isSouthOrNorth(latitude, longitude)
       .then(hemiferium => {
-       
+
         if (hemiferium === 'N') { // TODO - REFACTORING
 
           this.logger.info('Arriving an new user to our DB');

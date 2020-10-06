@@ -13,7 +13,7 @@
     ],
     "rules": {
        " no-func-assign": "semi",
-       "code":120,
+       "code":80,
        "max-len":"off"
     }
 }

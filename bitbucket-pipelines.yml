@@ -1,0 +1,38 @@
+image: node:12
+pipelines:
+  branches:
+    develop:
+      - step:
+          caches:
+            - node
+          name: 'Develop service release'
+          deployment: test
+          script:
+
+            # - git remote set-url origin ${BITBUCKET_GIT_SSH_ORIGIN}
+            # - echo $PRIVATE_KEY > ~/.ssh/id_rsa.tmp
+            # - base64 -d ~/.ssh/id_rsa.tmp > ~/.ssh/id_rsa
+            # - chmod 600 ~/.ssh/id_rsa
+            - npm install
+            - npm run start
+            - if [[ $(git rev-parse --is-shallow-repository) == false ]]; then git fetch --unshallow || echo 'Fail to fetch unshallow'; fi
+            - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+            - git fetch origin
+            - git checkout --track origin/release/dev
+            - git merge develop
+            - git push origin release/dev
+    release/dev:
+      - step:
+          caches:
+            - node
+          name: 'Deploy in alfa'
+          deployment: test
+          script:
+            - npm run release
+            - VERSION=$(npm run version --silent)
+            - git fetch origin develop
+            - git checkout release/alfa
+            - git pull origin release/alfa
+            - git merge develop
+            - git tag -am "Release $VERSION" $VERSION
+            - git push --follow-tags origin release/alfa

@@ -16,3 +16,10 @@ services:
     restart: always
     ports:
       - 8080:8080
+  
+  dogsbook:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  

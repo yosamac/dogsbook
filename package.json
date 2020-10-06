@@ -13,6 +13,7 @@
     "cm": "git-cz",
     "commitmsg": "validate-commit-msg",
     "release": "standard-version",
+    "version": "v${npm_package_version}",
     "precommit": "lint-staged",
     "build:dev-image": "docker build . -t indigitall/${npm_package_name}:${npm_package_version}-$(git rev-parse --short HEAD) --no-cache",
     "build:pro": "docker build . -t indigitall/${npm_package_name}:${npm_package_version} --no-cache"
@@ -24,7 +25,7 @@
     "friends",
     "love"
   ],
-  "author": "Yosnier Samon M.",
+  "author": "Yosnier Samon",
   "license": "ISC",
   "dependencies": {
     "@hapi/boom": "^9.0.0",
