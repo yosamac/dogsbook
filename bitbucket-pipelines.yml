@@ -27,9 +27,8 @@ pipelines:
             - npm run release
             - VERSION=$(npm run version --silent)
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            - git fetch origin
             - git fetch origin develop
-            - git checkout origin release/alfa
+            - git checkout origin/release/alfa
             - git pull origin release/alfa
             - git merge origin develop
             - git tag -am "Release $VERSION" $VERSION
