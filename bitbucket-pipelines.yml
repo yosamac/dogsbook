@@ -27,8 +27,8 @@ pipelines:
             - npm run release
             - VERSION=$(npm run version --silent)
             - git fetch origin develop
-            - git checkout release/alfa
+            - git checkout origin/release/alfa
             - git pull origin release/alfa
-            - git merge develop
+            - git merge origin develop
             - git tag -am "Release $VERSION" $VERSION
             - git push --follow-tags origin release/alfa
