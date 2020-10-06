@@ -31,6 +31,6 @@ pipelines:
             - git fetch origin develop
             - git checkout --track origin/release/alfa
             - git pull origin release/alfa
-            - git merge origin develop
+            - git merge develop
             - git tag -am "Release $VERSION" $VERSION
             - git push --follow-tags origin release/alfa
