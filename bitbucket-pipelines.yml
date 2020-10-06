@@ -23,13 +23,13 @@ pipelines:
           name: 'Deploy in alfa'
           deployment: test
           script:
-            - npm install 
-            - npm run release
-            - VERSION=$(npm run version --silent)
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch origin
             - git checkout --track origin/release/alfa
             - git merge develop
+            - npm install
+            - npm run release
+            - VERSION=$(npm run version --silent)
             - git tag -am "Release $VERSION" $VERSION
             - git push --follow-tags origin release/alfa
     
