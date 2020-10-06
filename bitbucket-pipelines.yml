@@ -8,13 +8,8 @@ pipelines:
           name: 'Develop service release'
           deployment: test
           script:
-
-            # - git remote set-url origin ${BITBUCKET_GIT_SSH_ORIGIN}
-            # - echo $PRIVATE_KEY > ~/.ssh/id_rsa.tmp
-            # - base64 -d ~/.ssh/id_rsa.tmp > ~/.ssh/id_rsa
-            # - chmod 600 ~/.ssh/id_rsa
             - npm install
-            - npm run start
+            - npm run build
             - if [[ $(git rev-parse --is-shallow-repository) == false ]]; then git fetch --unshallow || echo 'Fail to fetch unshallow'; fi
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch origin
