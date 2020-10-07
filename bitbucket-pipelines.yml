@@ -11,26 +11,13 @@ pipelines:
             - npm install
             - npm run build
             - npm run release
-            - VERSION=$(npm run version --silent)
-            - git tag -am "Release $VERSION" $VERSION
+            - git push --follows-tags
             - if [[ $(git rev-parse --is-shallow-repository) == false ]]; then git fetch --unshallow || echo 'Fail to fetch unshallow'; fi
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch origin
             - git checkout --track origin/release/dev
             - git merge develop
             - git push origin release/dev
-    release/dev:
-      - step:
-          caches:
-            - node
-          name: 'Deploy in alfa'
-          deployment: test
-          script:
-            - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            - git fetch origin
-            - git checkout --track origin/release/alfa
-            - git merge develop
-            - git push --follow-tags origin release/alfa
     
   pull-requests:
     '**':
@@ -41,3 +28,18 @@ pipelines:
           script:
             - npm install
             - npm run build
+  custom:
+    pipeline-alfa:
+      - step:
+          caches:
+            - node
+          name: 'Deploy in alfa'
+          deployment: test
+          script:
+            - if [[ $(git rev-parse --is-shallow-repository) == false ]]; then git fetch --unshallow || echo 'Fail to fetch unshallow'; fi
+            - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+            - git fetch origin
+            - git checkout --track origin/release/alfa
+            - git merge release/dev
+            - git push --follow-tags origin release/alfa
+    
