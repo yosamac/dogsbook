@@ -4,7 +4,7 @@
 
 FROM node:12-slim
 
-LABEL maintainer="Yosnier Samon M."
+LABEL maintainer="Yosnier Samon"
 
 ENV USER dockerfileUser
 
@@ -16,7 +16,7 @@ COPY package.json package.json
 
 # Change to non-root user
 RUN groupadd --system $USER --gid 433 && \
-    useradd --uid 431 --system --gid $USER --shell /sbin/nologin --comment "User inside Docker containers" $USER && \
+    useradd --uid 431 --system --gid $USER --shell /sbin/nologin --comment "User inside Docker container" $USER && \
     chown -R $USER:$USER /home/$USER
 USER $USER
 
