@@ -1,6 +1,6 @@
-################################
-# Doogsbook #
-################################
+#############
+# Dogsbook #
+###########
 
 FROM node:12-slim
 
@@ -22,9 +22,9 @@ USER $USER
 
 # Install Node dependencies and remove NPM cache
 RUN npm install --production && \
-   npm cache clean -f && \
-   rm -rf /home/$user/.node-gyp && \
-   rm -rf /tmp/npm-*
+    npm cache clean -f && \
+    rm -rf /home/$user/.node-gyp && \
+    rm -rf /tmp/npm-*
 
 # Add the rest of the app
 COPY . .
@@ -36,4 +36,4 @@ EXPOSE 3000
 ENV DEBUG *
 ENV NODE_ENV production
 
-CMD [ "npm", "start" ]
+CMD [ "node", "dist/app.js" ]
