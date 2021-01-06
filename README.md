@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You should to have installed Node.js +v12.16.0 and Postgres
+You should to have installed Node.js +v12.16.0, Postgres, Docker and Docker-compose.
 
 ### Downloading and installing dependencies
 
@@ -23,7 +23,11 @@ npm install
 ### Development mode
 
 ```shell
-npm start:dev
+npm run docker-compose:dev
+```
+
+```shell
+npm run start:dev
 ```
 
 ### Production mode
@@ -89,7 +93,7 @@ Please make sure to update tests as appropriate.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/yosamac/dogsbook/branch/master/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/yosamac/dogsbook/tags). 
 
 ### Generating Release
 
