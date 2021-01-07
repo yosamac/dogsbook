@@ -7,7 +7,7 @@ import Logger from './loaders/logger';
 const PORT = config.port
 
 async function startServer() {
-  const app = express();
+  const app: express.Express = express();
 
   /**
    * A little hack here
