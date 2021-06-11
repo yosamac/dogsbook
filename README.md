@@ -1,6 +1,6 @@
 # Dogsbook
 
-Social network of people who love dogs. 
+Social network for people who love dogs. 
 
 ## Getting Started
 
