@@ -7,7 +7,7 @@ import Logger from './loaders/logger';
 const PORT = config.port
 
 async function startServer() {
-  const app = express();
+  const app: express.Express = express();
 
   /**
    * A little hack here
@@ -17,7 +17,7 @@ async function startServer() {
    **/
   await require('./loaders').default({ expressApp: app });
 
-  app.listen(config.port, (err):void => {
+  app.listen(config.port, (err: any):void => {
     if (err) {
       Logger.error(err);
       process.exit(1);
